@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário de Ômega - Urbans Family</title>
+    <link rel="stylesheet" href="capastyle.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const lastReadChapter = localStorage.getItem(getStorageKey());
+            const continueButton = document.getElementById("continue-button");
+
+            if (lastReadChapter) {
+                continueButton.textContent = "Continuar Leitura";
+                continueButton.href = `${lastReadChapter}.html`;
+            } else {
+                continueButton.textContent = "Iniciar Leitura";
+                continueButton.href = "capitulo0.html";
+            }
+        });
+
+        function setLastRead(chapterId) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const storageKey = `${currentBook}_lastReadChapter`;
+            localStorage.setItem(storageKey, chapterId);
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container">
+        <a href="indice.html">
+            <img src="UFORDC-poster.png" alt="Capa do livro Urbans Family" class="book-cover">
+        </a>
+        <h1 class="book-title">Urbans Family</h1>
+        <h2 class="book-subtitle">"Os Reis do Crime"</h2>
+        <p class="author-name">Por Kell Shalom</p>
+        <div class="buttons">
+            <a id="continue-button" href="#" class="button">Iniciar Leitura</a>
+        </div>
+    </div>
+</body>
+</html>

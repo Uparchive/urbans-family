@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 2</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo2">
+        <h1 class="chapter-number">Capítulo 2</h1>
+        <h2 class="chapter-title">O Primeiro Trabalho</h2>
+        <p>A noite era fria e silenciosa quando João chegou ao galpão. Diego estava esperando com um ar confiante, cercado por dois homens que carregavam caixas para dentro de uma van preta. "Você chegou na hora certa, João", disse Diego, acenando para ele se aproximar.</p>
+        <p>"O que exatamente eu preciso fazer?" perguntou João, ainda hesitante. Diego deu um sorriso que misturava diversão e superioridade. "É bem simples. Você vai dirigir esta van até um endereço no centro. Sem perguntas, sem problemas. Depois disso, o dinheiro será seu."</p>
+        <p>João olhou para a van e depois para Diego. Ele sabia que havia algo errado, mas a imagem de Clara doente e as contas na mesa o convenceram. "Tudo bem, eu faço isso."</p>
+        <p>A viagem foi tensa. Cada farol vermelho parecia durar uma eternidade, e cada carro que o seguia parecia suspeito. As mãos de João tremiam no volante, e o suor escorria por sua testa, apesar do frio. Finalmente, ele chegou ao destino: um armazém em uma área industrial.</p>
+        <p>Dois homens estavam esperando. Sem dizer uma palavra, eles começaram a descarregar as caixas. Um deles entregou a João um envelope grosso. "Bom trabalho", disse, antes de desaparecer na escuridão.</p>
+        <p>De volta ao galpão, Diego o recebeu com um sorriso satisfeito. "Viu como foi fácil? E rápido também. Tem mais disso se você quiser." Ele entregou a João um maço de dinheiro e deu um tapinha em suas costas. João hesitou antes de aceitar, sentindo um peso invisível crescer em seus ombros.</p>
+        <p>Ao chegar em casa naquela noite, João evitou o olhar de Ana. Ele entregou o remédio para Clara e foi direto para o quarto. Sentado na cama, olhou para o dinheiro em suas mãos. Ele havia resolvido o problema imediato, mas sabia que algo dentro de si havia mudado.</p>
+        <p>Nos dias seguintes, Diego continuou a oferecer trabalhos a João, cada um mais arriscado que o anterior. João ainda lutava contra sua consciência, mas a necessidade parecia vencer todas as vezes. Ele justificava para si mesmo: "É temporário. Só até as coisas melhorarem."</p>
+        <p>No entanto, ele começou a notar mudanças ao seu redor. Os vizinhos cochichavam. Ana parecia mais distante, e até Clara, apesar de estar melhor, parecia olhar para ele de forma diferente. João estava começando a perceber que o preço de sua decisão poderia ser mais alto do que ele estava disposto a pagar.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo1.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo3.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

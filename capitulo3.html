@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 3</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo3">
+        <h1 class="chapter-number">Capítulo 3</h1>
+        <h2 class="chapter-title">Primeiras Consequências</h2>
+        <p>Os dias começaram a se transformar em um borrão de trabalhos arriscados e noites insones. A cada missão completada, João recebia mais dinheiro, mas também mais olhares suspeitos. Ele notava os vizinhos sussurrando, apontando para sua casa. Ana não perguntava mais de onde vinha o dinheiro, mas o silêncio dela era ensurdecedor.</p>
+        <p>Uma noite, ao voltar de mais um trabalho, João encontrou Clara acordada no sofá, segurando seu ursinho de pelúcia. "Papai, por que você chega tão tarde agora?" A pergunta inocente cortou como uma faca. Ele se ajoelhou na frente dela e tentou sorrir. "Estou trabalhando muito para que tudo fique bem, minha princesa." Mas, no fundo, ele sabia que não tinha respostas verdadeiras para dar.</p>
+        <p>Enquanto isso, Diego começava a pressionar João para assumir mais responsabilidades. "Você é bom nisso, João. Diferente de muitos por aí, você pensa antes de agir. Posso confiar em você." Apesar do elogio, João sentia o peso do que estava se tornando. "É só por um tempo", ele repetia para si mesmo, mas a verdade era que ele estava cada vez mais enredado.</p>
+        <p>Em um dos trabalhos mais recentes, João teve seu primeiro encontro com o perigo real. Ele foi encarregado de entregar uma "mercadoria" a um grupo desconhecido. Ao chegar ao local combinado, percebeu que havia algo errado. Os homens não pareciam interessados na mercadoria, mas sim em testar a lealdade de João.</p>
+        <p>Um dos homens, com uma arma à mostra, se aproximou. "Você é o novo cara do Diego, não é? Vamos ver se você aguenta o tranco." Antes que João pudesse reagir, o homem deu um soco em seu estômago, derrubando-o no chão. "Considere isso um aviso. Nas ruas, ninguém é intocável."</p>
+        <p>João voltou para casa naquela noite com o corpo dolorido e o orgulho ferido. Ele tentou esconder os hematomas de Ana, mas ela não era cega. "João, o que está acontecendo com você? Isso não é o que prometemos um ao outro." Ele não tinha respostas. Apenas se sentou em silêncio, segurando a cabeça entre as mãos.</p>
+        <p>Nos dias seguintes, João começou a perceber que o mundo no qual ele havia entrado não era tão simples quanto Diego fazia parecer. Ele estava sendo observado, testado, e cada passo em falso poderia ser fatal. As pressões internas e externas estavam começando a se acumular, e João sabia que algo precisava mudar antes que fosse tarde demais.</p>
+        <p>Mas as dívidas ainda estavam lá. Clara ainda precisava dele. E o dinheiro de Diego era a única coisa que mantinha tudo de pé. Ele estava preso em um ciclo que parecia não ter fim.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo2.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('continua.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

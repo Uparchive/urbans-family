@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 1</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo1">
+        <h1 class="chapter-number">Capítulo 1</h1>
+        <h2 class="chapter-title">O Homem Simples</h2>
+        <p>O despertador tocou às 5h30. João Carvalho, 35 anos, sentiu o cansaço de uma noite mal dormida. Sua filha Clara estava com febre alta e, como não tinham dinheiro para um médico particular, Ana passou a noite inteira tentando aliviar o desconforto da menina com compressas de água fria.</p>
+        <p>Ao sair para o trabalho, João olhou para sua esposa. "Eu vou dar um jeito, Ana. Prometo." Mas ele mesmo não sabia como. A oficina onde trabalhava mal pagava suas contas, e as dívidas estavam começando a sufocá-lo. Mesmo assim, ele mantinha a esperança de que tudo ficaria bem. Sempre ficou, não é?</p>
+        <p>Quando chegou à oficina, uma cena inesperada o aguardava: o portão estava trancado e um papel colado na porta dizia: "FECHADO POR TEMPO INDETERMINADO". O chefe havia desaparecido, deixando os funcionários sem salário e sem explicações. João sentiu o chão fugir sob seus pés.</p>
+        <p>No caminho de volta para casa, ele parou em uma farmácia para comprar remédio para Clara. "São R$ 75, senhor", disse a atendente. Ele procurou na carteira e percebeu que só tinha R$ 20. "Eu volto mais tarde", murmurou, envergonhado, enquanto sentia o olhar de pena da mulher atrás do balcão.</p>
+        <p>Chegando em casa, Ana estava desesperada. "João, a febre dela não baixa! Precisamos levá-la ao hospital!" Ele sabia que não tinha dinheiro para pagar uma consulta. A espera em um hospital público seria longa, e Clara precisava de ajuda imediatamente.</p>
+        <p>Foi nesse momento que Diego apareceu. Um antigo colega de infância, Diego agora era conhecido por ser uma figura influente nas ruas. Ele parou o carro ao lado de João e saiu, vestindo roupas caras e um relógio de ouro. "João, ouvi falar da oficina. Se precisar de ajuda, me procura", disse, deixando um cartão de visita antes de ir embora.</p>
+        <p>João ignorou o cartão inicialmente, mas à medida que os dias passavam, a situação piorava. As contas acumulavam. Clara ainda estava doente, e ele não via outra saída. Após mais uma noite sem dormir, ele pegou o cartão e leu as palavras escritas: "Diego Santos – Resolvo Problemas."</p>
+        <p>Com o coração pesado, João foi até o endereço indicado. O lugar era um galpão sombrio na periferia. Diego o recebeu com um sorriso. "João, sabia que você viria. Me diga: o que eu posso fazer por você?"</p>
+        <p>João hesitou antes de responder. "Eu preciso de dinheiro... Só para comprar os remédios da minha filha e pagar algumas contas." Diego o analisou por um momento antes de responder: "Eu te ajudo, mas nada é de graça. Você está disposto a trabalhar?"</p>
+        <p>A decisão pesou sobre os ombros de João. Ele sabia que estava cruzando uma linha, mas o desespero falava mais alto. "Sim", respondeu, com a voz baixa.</p>
+        <p>O primeiro passo estava dado. Mal sabia João que aquele momento mudaria sua vida para sempre.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('sobre-o-livro.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo2.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
