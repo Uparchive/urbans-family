@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 6</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo6">
+        <h1 class="chapter-number">Capítulo 6</h1>
+        <h2 class="chapter-title">Escolhas Difíceis</h2>
+        <p>O dia amanheceu pesado, refletindo o estado de espírito de João. O café esfriava na mesa enquanto Ana o observava com um olhar preocupado. "João, precisamos conversar." A voz dela era firme, mas havia uma leve hesitação. "Eu não sei mais quem você é."</p>
+        <p>João abaixou a cabeça, incapaz de encará-la. Ele sabia que tinha que contar a verdade, mas por onde começar? "Ana, tudo o que eu fiz foi para proteger vocês. Mas agora... Não sei como sair disso."</p>
+        <p>A confissão de João só aumentou a tensão. Ana se levantou, balançando a cabeça. "Proteger? É isso que você chama de proteção? Você trouxe perigo para dentro da nossa casa, João. Eu vejo nos seus olhos. Você está com medo, e isso me assusta ainda mais."</p>
+        <p>Antes que João pudesse responder, seu telefone tocou novamente. Era Diego. "João, você precisa vir agora. É urgente." Sem dar tempo para explicações, ele desligou. João sabia que não podia ignorar, mas também sabia que cada vez que respondia a um chamado de Diego, se afundava mais.</p>
+        <p>O encontro foi em um estacionamento vazio. Diego estava sozinho, o que era raro. "João, alguém está nos traindo. A polícia está se aproximando rápido demais, e eu preciso saber se você está do meu lado." As palavras de Diego eram carregadas de desconfiança.</p>
+        <p>João sentiu o estômago revirar. "Claro que estou do seu lado. Você sabe disso." Mas Diego não parecia convencido. Ele o entregou um pacote pequeno e uma instrução: "Leve isso para o galpão na zona industrial. E João, se você tiver algo a esconder, é melhor me dizer agora."</p>
+        <p>Durante o trajeto, João se viu em um turbilhão de pensamentos. Ele sabia que estava sendo testado. Se algo desse errado, não só ele, mas também Ana e Clara pagariam o preço. Ele chegou ao galpão, onde foi recebido por dois homens armados. Eles pegaram o pacote e acenaram para que ele fosse embora.</p>
+        <p>Quando João voltou para casa, encontrou Ana fazendo as malas. "Eu vou levar Clara para a casa da minha mãe. Não posso mais ficar aqui, João. Não desse jeito." Ele tentou impedi-la, mas as palavras dela foram um golpe. "Você precisa decidir, João. Ou você nos salva, ou continua se afundando."</p>
+        <p>Enquanto Ana saía pela porta, carregando Clara, João sentiu a solidão se abater sobre ele. Pela primeira vez, percebeu que estava completamente sozinho. A noite caiu, trazendo consigo um silêncio perturbador. João sabia que estava em um ponto de ruptura. E sabia que precisava tomar uma decisão antes que fosse tarde demais.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo5.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('continua.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

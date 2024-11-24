@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 5</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo5">
+        <h1 class="chapter-number">Capítulo 5</h1>
+        <h2 class="chapter-title">Sem Retorno</h2>
+        <p>As primeiras luzes da manhã se infiltravam pela janela quando João acordou de um sono agitado. Pesadelos o atormentavam, trazendo imagens de carros o seguindo, rostos desconhecidos e o peso de decisões que ele não sabia como corrigir. Ele olhou para Ana, que já estava na cozinha, mas evitava encontrá-lo com os olhos. O silêncio dela doía mais do que qualquer palavra.</p>
+        <p>Seu telefone vibrou novamente. Era Diego. "João, preciso que você venha agora. A coisa ficou feia." João sabia que não poderia recusar, mas algo no tom de Diego o deixou inquieto. Ao sair de casa, Ana o seguiu até a porta. "João, o que está acontecendo? Não somos mais a mesma família. Isso... Isso vai destruir a gente."</p>
+        <p>Ele hesitou, mas não conseguiu responder. Apenas virou as costas e foi embora.</p>
+        <p>O galpão estava cheio quando João chegou. Diego estava ao telefone, gritando ordens, enquanto homens armados entravam e saíam do local. "João, temos um problema sério. A polícia está nos cercando. Preciso que você pegue isso e desapareça por um tempo." Diego jogou um envelope grosso na direção dele.</p>
+        <p>"O que você quer dizer com desaparecer?" João perguntou, enquanto sentia o envelope pesado em suas mãos. "Eu quero dizer que você vai sumir. Vai levar sua família e sair da cidade. As coisas estão complicadas aqui, e você já atraiu atenção demais."</p>
+        <p>João sentiu a pressão aumentar. Ele sabia que Diego não estava pedindo. Ele estava dando uma ordem. Mas sair não era uma opção tão simples. Sua vida estava enraizada ali, e fugir significava abandonar qualquer esperança de normalidade.</p>
+        <p>Enquanto dirigia de volta para casa, ele percebeu o carro preto novamente. Desta vez, estava mais próximo, mais ameaçador. João virou em uma rua lateral, tentando despistar. Ele parou em um beco, com o coração disparado. De repente, a porta do passageiro se abriu, e um homem entrou no carro. "Dirija", disse ele, segurando uma arma na mão.</p>
+        <p>João obedeceu, sem dizer uma palavra. Ele sabia que estava entrando em um jogo perigoso, mas não tinha escolha. "Você está no radar de pessoas que não gostam de Diego. E por associação, isso inclui você. Então, eu sugiro que você escolha seus lados com cuidado."</p>
+        <p>O homem saiu do carro tão rápido quanto entrou, deixando João sozinho, tremendo e confuso. Ele voltou para casa, mas sabia que algo havia mudado. Ele não era mais apenas uma peça no jogo de Diego. Ele era um alvo. E, pior ainda, ele sabia que, a partir daquele momento, cada decisão que tomasse poderia colocar Ana e Clara em risco.</p>
+        <p>João fechou a porta atrás de si e olhou para a família. Ele sabia que não podia mais esconder a verdade, mas como explicar o inexplicável? Como dizer que o homem que prometeu proteger sua família agora era o maior perigo para ela?</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo4.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo6.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

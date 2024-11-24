@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo4">
+        <h1 class="chapter-number">Capítulo 4</h1>
+        <h2 class="chapter-title">Cercado</h2>
+        <p>O sol mal havia surgido no horizonte quando João sentiu o telefone vibrar ao lado de sua cama. Ele sabia que era Diego. O nome no visor confirmava. "Preciso de você agora", foi tudo o que Diego disse antes de desligar.</p>
+        <p>João hesitou por um momento. Ele olhou para Ana, que dormia ao lado dele, e para Clara, ainda encolhida em sua cama no outro quarto. Por que ele estava fazendo isso? Cada vez mais, a pergunta rondava sua mente. Mas ele sabia que não poderia recusar. Não agora.</p>
+        <p>O encontro era em uma estrada isolada fora da cidade. Quando João chegou, viu Diego ao lado de um carro preto, cercado por homens que ele não reconhecia. "Preciso que você pegue isso e leve até o outro lado da cidade", disse Diego, apontando para uma mala no chão.</p>
+        <p>"O que tem dentro?" perguntou João, pela primeira vez. Diego estreitou os olhos. "Você sabe as regras, João. Menos perguntas, mais ações. Estamos no mesmo barco ou não?"</p>
+        <p>Sem outra escolha, João pegou a mala e colocou no porta-malas de seu carro. Ele dirigiu pelas ruas da cidade com o coração pesado, sentindo como se cada carro ao seu redor fosse uma ameaça. Quando chegou ao destino, uma figura o esperava. Era um homem mais velho, com cicatrizes no rosto e olhos que pareciam enxergar através dele.</p>
+        <p>"Você está atrasado", disse o homem, sem emoção. Ele abriu a mala, examinou o conteúdo e acenou para dois de seus homens. "Levem isso daqui." João tentou não olhar, mas seus olhos se desviaram para a mala aberta. Dinheiro. Pilhas e pilhas de notas. Mais do que ele jamais tinha visto em sua vida.</p>
+        <p>De volta ao carro, João respirou fundo. Ele havia feito a entrega, mas sabia que algo estava errado. Durante o trajeto de volta, ele percebeu que estava sendo seguido. Um carro preto mantinha uma distância constante. Suas mãos suaram enquanto ele tentava disfarçar sua ansiedade.</p>
+        <p>Quando finalmente chegou em casa, João trancou todas as portas e apagou as luzes. Ele sabia que, a partir daquele momento, estava sendo observado. Diego podia chamá-lo de parceiro, mas João começava a perceber que ele não passava de uma peça em um jogo muito maior.</p>
+        <p>Nos dias que se seguiram, João percebeu que estava cercado. Os vizinhos cochichavam ainda mais. Policiais começaram a patrulhar com mais frequência. E Ana... Ana sabia que ele estava escondendo algo, mas evitava confrontá-lo diretamente. A tensão na casa era palpável.</p>
+        <p>João estava preso em um ciclo de paranoia e culpa. Ele queria sair, mas sabia que não podia. As ruas tinham suas próprias regras, e Diego deixara claro: "Aqui, não há saída fácil."</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo3.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo5.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
