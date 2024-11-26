@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 7</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo7">
+        <h1 class="chapter-number">Capítulo 7</h1>
+        <h2 class="chapter-title">A Primeira Escolha</h2>
+        <p>João passou a noite em claro. O silêncio da casa, agora vazia, era um lembrete constante de suas escolhas. Cada som do lado de fora parecia uma ameaça. Ele olhava para o telefone, esperando o inevitável. E ele veio.</p>
+        <p>Diego não perdeu tempo. "João, tenho um trabalho para você. Dessa vez é diferente. Preciso de alguém em quem confio." As palavras soavam como uma armadilha, mas João não tinha outra opção.</p>
+        <p>O trabalho parecia simples: acompanhar uma entrega e garantir que ela chegasse ao destino. Mas, ao chegar ao ponto de encontro, João percebeu que algo estava errado. O local estava cercado por carros e homens armados. Um deles se aproximou, entregando a João uma arma.</p>
+        <p>"Se as coisas derem errado, você sabe o que fazer", disse o homem, com um sorriso frio. João segurou a arma com mãos trêmulas. Ele nunca havia usado uma antes. Nunca quis.</p>
+        <p>Durante a entrega, o caos começou. Um grupo rival apareceu, exigindo a mercadoria. Diego estava no local, mas em vez de intervir, ele apenas observava, como se estivesse testando João. "Mostre do que você é capaz", disse ele, com um olhar desafiador.</p>
+        <p>João teve que tomar uma decisão rápida. Ele sabia que, se não reagisse, seria o fim dele e talvez de sua família. Tremendo, ele ergueu a arma. O disparo ecoou no ar, e o confronto começou. João mal sabia como se defender, mas, movido pelo instinto de sobrevivência, conseguiu sair ileso.</p>
+        <p>Quando tudo acabou, Diego se aproximou. "Você fez o que precisava fazer. Agora, você é um de nós de verdade." As palavras pareciam um elogio, mas para João, eram uma sentença.</p>
+        <p>De volta para casa, ele lavou o sangue das mãos, mas não conseguia apagar a sensação de que algo dentro dele havia mudado para sempre. Pela primeira vez, ele cruzou uma linha que nunca achou que cruzaria. E agora, não havia mais volta.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo6.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo8.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

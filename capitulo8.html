@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 8</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo8">
+        <h1 class="chapter-number">Capítulo 8</h1>
+        <h2 class="chapter-title">A Traição</h2>
+        <p>O confronto havia deixado João abalado. Ele não conseguia esquecer o som dos tiros, o cheiro de pólvora, ou os olhares de Diego. Cada detalhe estava gravado em sua mente. Ele se perguntava se aquilo era um teste ou um aviso.</p>
+        <p>Diego, por outro lado, parecia diferente. Mais reservado, mais desconfiado. "Alguém está falando demais, João", disse ele em um telefonema curto. "Tenho uma missão para você. Encontre quem é o rato antes que a polícia encontre a gente."</p>
+        <p>João relutou. Não era o tipo de tarefa que ele queria, mas não tinha escolha. Diego estava nervoso, e João sabia que isso significava problemas. Ele recebeu uma lista de nomes. Entre eles, reconheceu algumas figuras que ele havia conhecido recentemente, homens que ele considerava aliados. A tarefa era clara: investigar e relatar qualquer suspeita.</p>
+        <p>Enquanto investigava, João começou a perceber as rachaduras no grupo. Havia segredos e alianças ocultas. Um dos homens, Marcos, parecia especialmente inquieto. Ele gaguejava quando falava e evitava o olhar direto. João o seguiu até um bar na periferia e o viu conversando com alguém que parecia ser um policial à paisana.</p>
+        <p>Quando João confrontou Marcos, ele negou tudo. "Eu não estou traindo ninguém, João! Você precisa acreditar em mim!" Mas a tensão entre eles crescia. Diego logo soube da situação e organizou uma reunião no galpão. "Se há um traidor entre nós, isso acaba hoje", disse ele, enquanto seus homens cercavam Marcos.</p>
+        <p>João assistiu, incapaz de intervir. Marcos tentou se defender, mas as evidências estavam contra ele. Diego não perdeu tempo. "A lealdade é tudo aqui, João. Se você não pode confiar em alguém, não pode mantê-lo por perto." Com um único gesto, ele deu a ordem. Marcos foi retirado do galpão, e o som de um tiro ecoou pouco depois.</p>
+        <p>A cena deixou João em pedaços. Ele sabia que Marcos poderia ser inocente, mas não tinha provas para defendê-lo. "Isso é o que acontece quando você tenta sair ou nos trair", disse Diego, olhando diretamente para João.</p>
+        <p>De volta para casa, João se sentiu esmagado pelo peso da culpa. Ele sabia que, a cada dia, estava se afundando mais em um mundo do qual talvez nunca pudesse sair. A dúvida e o medo começaram a tomar conta dele. Será que Diego suspeitava dele também? Ou seria apenas uma questão de tempo até que ele fosse o próximo?</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo7.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo9.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

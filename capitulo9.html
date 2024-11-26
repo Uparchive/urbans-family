@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 9</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo9">
+        <h1 class="chapter-number">Capítulo 9</h1>
+        <h2 class="chapter-title">O Preço da Ambição</h2>
+        <p>Os dias seguintes foram um borrão para João. O olhar frio de Diego e o som do tiro que condenou Marcos não saíam de sua mente. Ele sabia que Diego o estava testando. A cada passo, parecia que uma nova armadilha surgia, pronta para engoli-lo.</p>
+        <p>As ruas, antes familiares, agora pareciam um labirinto cheio de olhos o observando. Polícias patrulhavam a região com mais frequência, e boatos de que o cerco estava se fechando se espalhavam rapidamente entre os membros do grupo. João sabia que estava em perigo. Todos estavam.</p>
+        <p>Um dia, enquanto estava no galpão, ouviu Diego discutir com um dos líderes do grupo. "Alguém está entregando informações. Se continuarmos assim, estaremos mortos ou presos em menos de uma semana." A tensão no ambiente era palpável.</p>
+        <p>João começou a planejar sua saída. Ele sabia que precisava agir rápido, mas fugir não seria simples. Diego era meticuloso e tinha olhos em todos os lugares. Além disso, João precisava garantir a segurança de Ana e Clara antes de fazer qualquer movimento.</p>
+        <p>Naquela noite, ele se encontrou com um velho amigo, Carlos, alguém de fora do grupo, mas com conexões. "Carlos, eu preciso de uma saída. Para mim e para minha família." Carlos hesitou. "João, você sabe que não é tão simples assim. Diego não vai deixar você simplesmente desaparecer."</p>
+        <p>Apesar da hesitação, Carlos prometeu ajudar. "Eu vou ver o que posso fazer. Mas se você vai fugir, faça rápido. E esteja preparado para o pior."</p>
+        <p>Enquanto isso, Diego chamou João para uma nova missão. "Essa é importante", disse ele. "Se você fizer isso direito, nossa posição estará segura. Mas se errarmos, é o fim." João sabia que não tinha escolha a não ser aceitar, mas, em sua mente, a ideia de fugir ficava cada vez mais clara.</p>
+        <p>O capítulo terminou com João olhando para a foto de Ana e Clara em sua carteira, segurando o telefone, esperando pela ligação de Carlos. Ele sabia que o tempo estava se esgotando. O preço de sua ambição estava prestes a ser cobrado.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo8.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('continua.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
