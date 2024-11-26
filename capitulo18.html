@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 18</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo18">
+        <h1 class="chapter-number">Capítulo 18</h1>
+        <h2 class="chapter-title">Estratégia nas Sombras</h2>
+        <p>João sentia o peso do plano que estava traçando. Enfrentar Andrade significava colocar não apenas sua vida, mas também a de Ana e Clara em risco. No entanto, ele sabia que não havia outra escolha. Andrade havia cruzado uma linha, e João não podia recuar.</p>
+        <p>Torres foi fundamental no início. "Se você quer mexer com Andrade, precisa de informações. Eu conheço alguns caras aqui dentro que têm conexões com ele. Mas vai custar caro."</p>
+        <p>João acenou com a cabeça. "Eu sei como negociar. Me coloque em contato com eles."</p>
+        <p>As negociações começaram em segredo. João usava cigarros, comida e até promessas de proteção como moeda de troca. Aos poucos, ele montava um mapa mental das operações de Andrade. Descobriu que o rival usava a prisão para recrutar homens e coordenar negócios ilícitos do lado de fora.</p>
+        <p>Enquanto isso, Carlos fazia o que podia para manter Ana e Clara protegidas. Em uma ligação clandestina, ele alertou João: "Andrade está desconfiando. Ele sabe que você está tramando algo."</p>
+        <p>"Deixe ele desconfiar," João respondeu com frieza. "Eu quero que ele saiba que não vou me curvar."</p>
+        <p>O ponto de virada veio quando João descobriu que Andrade tinha um parceiro dentro da prisão: um guarda corrupto chamado Mendes. Torres o apresentou a Mendes, mas o encontro foi tenso. "O que você quer, Carvalho?" perguntou Mendes, com um tom desafiador.</p>
+        <p>"Informação. Quero saber como Andrade está operando aqui dentro. E em troca, garanto que você sairá ileso quando isso acabar."</p>
+        <p>Mendes riu. "Você tem coragem, mas Andrade é maior do que você imagina. Se eu trair ele, estou morto."</p>
+        <p>João se aproximou, olhando Mendes nos olhos. "Se você não me ajudar, você está morto de qualquer jeito. A diferença é que, comigo, você tem uma chance."</p>
+        <p>Relutante, Mendes começou a fornecer informações. Ele revelou que Andrade planejava uma grande movimentação de drogas para financiar suas operações externas. João sabia que essa era sua oportunidade de enfraquecer o rival.</p>
+        <p>Na mesma noite, João e Torres começaram a organizar uma emboscada. Eles alertaram outros prisioneiros, prometendo que qualquer um que ajudasse teria proteção dentro da prisão. Aos poucos, João estava formando uma nova aliança, algo que ele poderia usar para confrontar Andrade diretamente.</p>
+        <p>O capítulo termina com João em sua cela, olhando para o mapa que Torres havia desenhado. Ele sabia que o sucesso desse plano poderia ser o primeiro passo para recuperar o controle de sua vida. "Se Andrade quer jogar, eu vou mostrar a ele como o jogo é realmente jogado."</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo17.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo19.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

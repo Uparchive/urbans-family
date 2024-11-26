@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 15</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo15">
+        <h1 class="chapter-number">Capítulo 15</h1>
+        <h2 class="chapter-title">A Solidão do Rei</h2>
+        <p>A rotina da prisão havia se tornado previsível, mas cada dia trazia um novo desafio. João aprendeu a se mover com cuidado, observando e calculando cada interação. Ele sabia que estava em um jogo perigoso, onde uma palavra errada poderia significar o fim.</p>
+        <p>As primeiras semanas foram de sobrevivência pura. João evitava conflitos, mas não deixava que os outros vissem fraqueza. Ele começou a notar padrões: os homens mais poderosos tinham controle sobre tudo, desde comida até o silêncio dos guardas. Era um sistema de poder que espelhava o submundo do lado de fora.</p>
+        <p>Um dia, durante o almoço, um dos aliados de Diego, um homem chamado Torres, se aproximou. "Então, você é o homem que derrubou o Diego? Isso te dá fama aqui dentro, mas também faz de você um alvo."</p>
+        <p>João olhou para Torres, medindo suas palavras. "Não quero problemas. Só quero passar meu tempo aqui em paz."</p>
+        <p>Torres riu, um som áspero e ameaçador. "Paz não existe aqui, amigo. Você vai ter que escolher um lado. Ou você se defende, ou será devorado."</p>
+        <p>Essa conversa foi o ponto de virada. João percebeu que não poderia sobreviver sem aliados. Ele começou a se aproximar de prisioneiros influentes, usando seu histórico com Diego como moeda de troca. Lentamente, começou a construir uma rede de apoio.</p>
+        <p>Carlos o visitava regularmente, trazendo atualizações sobre Ana e Clara. "Elas estão bem", disse ele em uma visita. "Ana conseguiu um emprego e está tentando seguir em frente. Mas Clara sente sua falta. Ela pergunta sobre você o tempo todo."</p>
+        <p>Essas palavras eram como uma faca no coração de João. Ele sabia que sua ausência estava moldando a infância de Clara de uma maneira que ele nunca quis. Mas, ao mesmo tempo, ele sentia que estava sendo puxado mais fundo para o mundo do crime.</p>
+        <p>Durante uma reunião clandestina na prisão, João começou a formular um plano. Ele percebeu que o controle que Diego tinha do submundo ainda estava em ruínas. "Se ninguém assumir o que ele deixou, outros vão lutar por isso. E isso significa mais perigo para minha família."</p>
+        <p>João propôs uma ideia ousada: consolidar o que restava do império de Diego de dentro da prisão. Ele sabia que isso o colocaria em uma posição de poder, mas também criaria novos inimigos. "Se eu for o rei, ninguém ousará tocar na minha família", pensou ele.</p>
+        <p>O capítulo termina com João olhando para o céu através das grades de sua cela. Ele sabia que o caminho à frente seria difícil, mas pela primeira vez em muito tempo, ele tinha um objetivo claro. "Se o submundo quer um rei, eu serei o mais implacável de todos."</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo14.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo16.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</

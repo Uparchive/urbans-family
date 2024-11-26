@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 16</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo16">
+        <h1 class="chapter-number">Capítulo 16</h1>
+        <h2 class="chapter-title">Sombras do Passado</h2>
+        <p>A rotina na prisão estava começando a parecer familiar, mas João sabia que isso era uma ilusão. A cada dia, ele ouvia boatos sobre o mundo lá fora, sobre facções em guerra e sobre como o império de Diego estava sendo disputado.</p>
+        <p>Foi durante uma conversa no pátio que ele ouviu o nome de Carlos ser mencionado. Dois homens estavam discutindo discretamente, mas João captou o essencial: "Ele escapou durante o caos... ouvi dizer que teve ajuda do pessoal de Andrade."</p>
+        <p>João se aproximou, tentando parecer casual. "De quem vocês estão falando?" Os homens se calaram por um momento, mas um deles respondeu: "Carlos. O cara que estava com você naquela noite. Dizem que ele fez um acordo com Andrade para escapar. Você sabia disso?"</p>
+        <p>João ficou paralisado. Andrade era um nome que ele conhecia bem, um dos maiores rivais de Diego, conhecido por sua brutalidade e por sempre ter segundas intenções em tudo o que fazia.</p>
+        <p>De volta à sua cela, João começou a juntar as peças. Carlos sempre teve conexões no submundo, mas se ele realmente fez um acordo com Andrade, isso significava que ele havia envolvido Ana e Clara em algo muito mais perigoso do que João podia imaginar.</p>
+        <p>No dia seguinte, Carlos apareceu para uma visita. João o encarou por um longo momento antes de falar. "Eu ouvi coisas, Carlos. Sobre como você escapou naquela noite. Sobre Andrade. Isso é verdade?"</p>
+        <p>Carlos hesitou, mas sabia que não adiantava mentir. "Sim, João. É verdade. Andrade me ajudou a escapar. Mas fiz isso por você, para garantir que Ana e Clara estivessem seguras."</p>
+        <p>A raiva de João era evidente. "Você envolveu minha família com aquele desgraçado? Você sabe do que ele é capaz!"</p>
+        <p>Carlos tentou argumentar. "Eu não tinha escolha! Era isso ou ser preso junto com você. Andrade me prometeu que deixaria Ana e Clara em paz, contanto que eu fizesse alguns favores para ele."</p>
+        <p>"Que favores?" João pressionou. Mas Carlos desviou o olhar, incapaz de responder. "Carlos, se alguma coisa acontecer com elas por causa disso, eu vou te encontrar, seja onde for."</p>
+        <p>Quando a visita terminou, João voltou para sua cela com a mente fervilhando. Ele sabia que precisava agir, mas estava preso, sem recursos imediatos. Ainda assim, ele começou a planejar. "Se Andrade quer algo de mim, ele terá que lidar comigo diretamente. E isso significa que preciso de aliados aqui dentro."</p>
+        <p>O capítulo termina com João iniciando uma conversa com Torres, o homem que o alertou sobre as regras da prisão. "Torres, se você quer uma chance de controlar as coisas aqui dentro, eu tenho um plano. Mas vou precisar da sua ajuda."</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo15.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo17.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 14</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo14">
+        <h1 class="chapter-number">Capítulo 14</h1>
+        <h2 class="chapter-title">A Queda</h2>
+        <p>Os dias após sua prisão se transformaram em semanas. João foi colocado em uma cela pequena, cercado por homens que ele reconhecia das ruas. Alguns eram aliados de Diego, outros apenas criminosos que o viam como mais um.</p>
+        <p>No começo, João manteve a cabeça baixa. Ele sabia que qualquer movimento em falso poderia transformá-lo em um alvo. Mas a prisão tinha suas próprias regras, e ele logo percebeu que não poderia ficar à margem por muito tempo.</p>
+        <p>Enquanto isso, Ana e Clara estavam seguras. Carlos garantiu que elas estivessem protegidas, mas o preço dessa segurança era alto. Ana visitou João pela primeira vez semanas após sua prisão. Seus olhos estavam cansados, e ela segurava um envelope nas mãos.</p>
+        <p>"João, eu vim porque precisava dizer isso cara a cara." Sua voz tremia, mas ela se manteve firme. "Eu não posso continuar assim. Você fez o que achou que era certo, mas tudo o que vejo agora é o que perdemos."</p>
+        <p>João tentou argumentar. "Ana, eu fiz isso por vocês. Eu nunca quis que as coisas chegassem a esse ponto."</p>
+        <p>Ela balançou a cabeça, segurando as lágrimas. "Eu sei que você tentou, mas nós dois sabemos que não há volta. Eu preciso de paz, João. Clara precisa de paz."</p>
+        <p>Ela colocou o envelope na mesa entre eles. Era uma solicitação de divórcio. João sentiu como se o chão tivesse desaparecido sob seus pés. "Eu ainda vou trazer Clara para te ver. Ela precisa saber que o pai dela tentou proteger ela. Mas eu não posso continuar."</p>
+        <p>Quando Ana saiu, João ficou sozinho na sala de visitas. Ele segurou o envelope por um longo tempo, sem abrir, sem dizer nada. O mundo que ele tentou salvar havia desmoronado.</p>
+        <p>De volta à cela, João começou a atrair atenção. Alguns prisioneiros se aproximaram, curiosos sobre sua ligação com Diego e o que ele sabia do submundo. Ele se recusou a falar no início, mas percebeu que sua sobrevivência dependia de alianças estratégicas.</p>
+        <p>Carlos visitou João dias depois. "Eu fiz o que pude por Ana e Clara. Elas estão seguras. Mas, João, você sabe que sua vida aqui não vai ser fácil. Há pessoas lá fora que ainda te veem como uma ameaça, mesmo atrás das grades."</p>
+        <p>João olhou para Carlos, sua expressão endurecida. "Se eles acham que podem me intimidar, estão subestimando o que eu me tornei."</p>
+        <p>A conversa com Carlos foi o começo de algo novo. João começou a observar, ouvir, e aprender as dinâmicas dentro da prisão. Ele sabia que, se quisesse proteger sua família mesmo de longe, precisaria se tornar algo mais do que apenas um prisioneiro. Ele precisava se tornar alguém que até o submundo respeitasse.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo13.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo15.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

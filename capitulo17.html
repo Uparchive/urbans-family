@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 17</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo17">
+        <h1 class="chapter-number">Capítulo 17</h1>
+        <h2 class="chapter-title">O Preço da Liberdade</h2>
+        <p>João sabia que as coisas haviam mudado. A revelação sobre Carlos e Andrade não era apenas uma traição; era uma ameaça direta à segurança de Ana e Clara. Ele precisava de respostas e, mais importante, de um plano para conter os danos.</p>
+        <p>No pátio da prisão, João se aproximou de Torres, um homem que conhecia bem as dinâmicas do submundo. "Torres, eu preciso de sua ajuda. Quero saber tudo sobre Andrade e o que ele está tramando."</p>
+        <p>Torres sorriu de canto. "Você está mexendo com o homem errado, João. Andrade não é alguém que você pode enfrentar de dentro dessa jaula. Mas... talvez possamos encontrar algo que ele queira."</p>
+        <p>Enquanto isso, Carlos voltou para mais uma visita, mas dessa vez trazia uma expressão preocupada. "João, Andrade está pressionando. Ele quer que eu consiga algo para ele, mas não disse o quê. Ele só falou que, se eu falhar, vai buscar o pagamento com você."</p>
+        <p>"Você colocou a minha família no caminho desse desgraçado, Carlos!" João gritou, sua raiva à beira de explodir. Mas Carlos não recuou. "Eu fiz o que tinha que fazer para mantê-los vivos. Você não estava lá para proteger ninguém."</p>
+        <p>Antes que a discussão pudesse continuar, um guarda anunciou que a visita havia terminado. Carlos se foi, mas a tensão permanecia. João sabia que precisava agir rápido. Ele chamou Torres para uma conversa no refeitório.</p>
+        <p>"Torres, se Andrade acha que pode me pressionar, ele está subestimando o que eu sou capaz de fazer. Quero montar uma operação aqui dentro. Algo que me coloque de volta no jogo."</p>
+        <p>Torres ergueu uma sobrancelha. "Isso vai custar caro, João. Mas você já mostrou que sabe como sobreviver. Vou colocar você em contato com as pessoas certas."</p>
+        <p>Enquanto João planejava, Ana apareceu inesperadamente para uma visita. Seus olhos estavam cansados, mas havia determinação em sua voz. "João, eu sei que você está tentando nos proteger, mas você precisa me dizer a verdade. Estamos seguros?"</p>
+        <p>João hesitou. Ele sabia que a segurança dela e de Clara era relativa enquanto Andrade estivesse no controle. "Vocês estão por enquanto. Mas eu prometo, Ana, vou acabar com isso."</p>
+        <p>Quando Ana se foi, João sentiu o peso de sua promessa. Ele sabia que o tempo estava se esgotando. Ele precisava consolidar sua posição na prisão, encontrar um meio de neutralizar Andrade e, acima de tudo, proteger sua família.</p>
+        <p>O capítulo termina com João olhando para Torres enquanto eles traçavam um plano. "Se Andrade acha que pode me controlar, ele vai descobrir que o submundo ainda é meu território."</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo16.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo18.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

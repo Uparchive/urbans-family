@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 13</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo13">
+        <h1 class="chapter-number">Capítulo 13</h1>
+        <h2 class="chapter-title">O Ultimato</h2>
+        <p>A estrada deserta parecia mais longa do que realmente era. João sentia o peso do que estava por vir. Ele havia prometido segurança para Ana e Clara, mas sabia que, enquanto Diego estivesse vivo, a promessa era vazia.</p>
+        <p>Depois de deixar Ana e Clara com um velho amigo de confiança em uma cidade vizinha, João dirigiu sozinho até o local combinado para o encontro com Diego. O galpão abandonado era perfeito para um confronto final: afastado de tudo, sombrio, e cercado por silêncio.</p>
+        <p>Diego estava esperando, cercado por seus homens. Ele parecia relaxado, mas seus olhos traiam uma desconfiança crescente. "João, que bom que veio. Achei que fosse fugir como um covarde."</p>
+        <p>"Estou aqui para acabar com isso, Diego. Você sabe que não há outra saída."</p>
+        <p>Diego riu, um som frio e vazio. "Você ainda acha que pode sair disso? Não há como escapar do submundo, João. Você está preso aqui tanto quanto eu."</p>
+        <p>Os homens de Diego começaram a cercar João, mas ele manteve a calma. "Eu só quero garantir que minha família fique segura. Se isso significa acabar com você, então que seja."</p>
+        <p>A tensão no ar era quase palpável. Diego acenou para seus homens, indicando que eles se afastassem. "Muito bem, João. Vamos resolver isso entre nós dois."</p>
+        <p>O confronto que se seguiu foi rápido e brutal. João usou tudo o que aprendeu nas ruas para enfrentar Diego, mas sabia que estava em desvantagem. Durante a luta, um dos homens de Diego tentou interferir, mas foi neutralizado por Carlos, que apareceu de surpresa para ajudar.</p>
+        <p>Com Diego ferido e encurralado, João se aproximou dele, segurando uma arma com mãos trêmulas. "Isso acaba aqui."</p>
+        <p>Antes que João pudesse tomar sua decisão final, sirenes cortaram o silêncio da noite. A polícia, alertada por uma denúncia anônima, cercou o galpão. "Larguem as armas! Vocês estão cercados!"</p>
+        <p>Diego tentou resistir, mas foi baleado durante a troca de tiros com a polícia. João, sem opções, abaixou a arma e se entregou. Ele sabia que sua liberdade havia chegado ao fim.</p>
+        <p>Enquanto era algemado, João olhou para o corpo de Diego no chão. Ele havia vencido, mas o custo era alto. Ao ser levado para a viatura, pensava apenas em Ana e Clara. Ele havia prometido protegê-las, e agora só podia esperar que tivesse cumprido sua promessa.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo12.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo14.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
