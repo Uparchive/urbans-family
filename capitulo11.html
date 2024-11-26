@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 11</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo11">
+        <h1 class="chapter-number">Capítulo 11</h1>
+        <h2 class="chapter-title">A Quebra de Confiança</h2>
+        <p>A troca de veículos foi apenas o começo. Enquanto João dirigia pela estrada secundária, sua mente corria com possibilidades e riscos. Ele sabia que Diego perceberia sua ausência em breve, e que cada minuto contava.</p>
+        <p>Quando finalmente chegou à casa de Carlos para pegar Ana e Clara, encontrou Carlos com uma expressão séria. "João, há um problema. Um dos homens de Diego veio aqui procurando por você. Ele sabe que estamos envolvidos."</p>
+        <p>João sentiu o coração apertar. "E Ana e Clara? Onde elas estão?" Carlos o tranquilizou. "Elas estão em segurança, mas precisamos nos mover rápido."</p>
+        <p>Enquanto discutiam, o telefone de João tocou. Era Diego. Ele hesitou antes de atender. "João, onde diabos você está?" A voz de Diego era gelada. "Tem algo que você precisa me explicar?"</p>
+        <p>João tentou manter a calma. "Diego, tive um problema com a van. Estou resolvendo e volto assim que possível." Mas ele sabia que Diego não acreditava nele. "Espero que você esteja dizendo a verdade, João. Caso contrário, as consequências não serão agradáveis."</p>
+        <p>Depois da ligação, Carlos trouxe Ana e Clara. Ana olhou para João com um misto de alívio e raiva. "O que está acontecendo, João? Por que estamos fugindo?" João segurou suas mãos. "Eu vou explicar tudo, mas agora precisamos sair daqui."</p>
+        <p>No caminho, perceberam que estavam sendo seguidos. Dois carros escuros se aproximavam rapidamente. "Eles nos acharam!" gritou Carlos. João acelerou, mas sabia que não poderia fugir para sempre. Ele tomou uma decisão arriscada: entrar em um estacionamento abandonado e despistar os perseguidores.</p>
+        <p>Uma perseguição frenética aconteceu. João usou todo seu conhecimento das ruas para confundir os homens de Diego. Quando finalmente conseguiu escapar, sabia que aquilo era apenas o começo. Diego estava atrás deles, e não pararia até encontrá-los.</p>
+        <p>A tensão aumentava. Ana começou a questionar se realmente poderiam confiar em Carlos. "Você tem certeza de que ele está do nosso lado, João?" Ele não respondeu, mas as palavras dela ecoaram em sua mente. Em um mundo onde todos eram potenciais traidores, João sabia que a confiança era um luxo que ele não podia se dar.</p>
+        <p>O capítulo termina com João olhando para sua família, agora em um esconderijo temporário, sabendo que o tempo estava se esgotando. Ele precisava decidir o próximo passo antes que Diego os alcançasse.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo10.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo12.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

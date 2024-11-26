@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 12</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo12">
+        <h1 class="chapter-number">Capítulo 12</h1>
+        <h2 class="chapter-title">A Linha Final</h2>
+        <p>O esconderijo temporário oferecia uma falsa sensação de segurança. Ana tentava manter Clara distraída, mas a tensão no ar era palpável. João sabia que não poderiam ficar ali por muito tempo.</p>
+        <p>Enquanto Carlos buscava suprimentos, João aproveitou o momento para finalmente conversar com Ana. "Eu nunca quis que chegássemos a esse ponto", disse ele, segurando suas mãos. "Mas agora, não temos escolha. Diego não vai parar até que nos destrua."</p>
+        <p>Ana olhou para ele, os olhos cheios de medo e raiva. "Você diz que está nos protegendo, mas tudo o que vejo é perigo ao nosso redor. O que aconteceu com o homem que eu conhecia, João?"</p>
+        <p>Antes que ele pudesse responder, o som de pneus cantando na rua próxima interrompeu a conversa. João correu até a janela e viu dois carros estacionando do lado de fora. "Eles nos encontraram", disse, com a voz trêmula.</p>
+        <p>Sem tempo para planejar, João reuniu Ana e Clara. "Vamos pelos fundos!" Carlos voltou correndo, carregando uma arma. "Eu seguro eles. Vão agora!"</p>
+        <p>João hesitou, mas Carlos gritou: "Vai! Cuide da sua família!" Sem outra opção, ele guiou Ana e Clara para fora, entrando em um beco escuro. Eles correram, ouvindo o som de tiros atrás deles. Cada disparo era um lembrete da gravidade da situação.</p>
+        <p>Depois de vários quarteirões, encontraram um carro estacionado com a chave no contato, deixado por Carlos como parte do plano. João ligou o motor, mas antes de sair, olhou para trás, na direção dos tiros. Ele sabia que Carlos provavelmente não sobreviveria.</p>
+        <p>A fuga continuou por horas. João dirigia sem destino, mudando de direção constantemente para despistar qualquer perseguidor. Quando finalmente pararam em uma estrada deserta, Ana quebrou o silêncio. "E agora? Vamos passar o resto da vida correndo?"</p>
+        <p>João não tinha resposta. Ele sabia que a única forma de parar Diego seria enfrentá-lo. Mas isso significava colocar tudo em risco. Ele segurou a foto de Clara no painel do carro, como se estivesse buscando coragem. "Eu preciso terminar isso", disse finalmente.</p>
+        <p>A noite caiu, e João tomou sua decisão. Ele levaria Ana e Clara para um lugar seguro antes de confrontar Diego pela última vez. Mas ele sabia que isso seria o começo de um confronto que definiria o futuro de todos.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo11.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('continua.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>

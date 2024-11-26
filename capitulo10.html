@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulo 10</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="responsive.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentBook = document.body.dataset.bookId || "urbans-family-os-reis-do-crime";
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            const currentChapterId = document.querySelector(".capitulo").id;
+            setLastRead(currentChapterId);
+
+            function setLastRead(chapterId) {
+                localStorage.setItem(getStorageKey(), chapterId);
+                console.log("Capítulo salvo no localStorage:", chapterId);
+            }
+        });
+
+        function navigateTo(url) {
+            const currentBook = document.body.dataset.bookId || "defaultBook";
+            const currentChapterId = document.querySelector(".capitulo").id;
+
+            function getStorageKey() {
+                return `${currentBook}_lastReadChapter`;
+            }
+
+            localStorage.setItem(getStorageKey(), currentChapterId);
+            console.log("Navegando para:", url, "Capítulo salvo:", currentChapterId);
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body data-book-id="urbans-family-os-reis-do-crime">
+    <div class="container capitulo" id="capitulo10">
+        <h1 class="chapter-number">Capítulo 10</h1>
+        <h2 class="chapter-title">O Plano em Movimento</h2>
+        <p>João sabia que cada passo precisava ser meticulosamente planejado. Ele não poderia falhar. Carlos o avisou de que Diego estava mais vigilante do que nunca, e qualquer deslize poderia custar sua vida e a de sua família.</p>
+        <p>Naquela manhã, João encontrou Carlos em um estacionamento abandonado. "Aqui estão os documentos que você pediu", disse Carlos, entregando um envelope. "Mas escute, João. Fugir não vai ser fácil. Diego tem olhos por toda parte."</p>
+        <p>João abriu o envelope e viu passaportes falsos, registros de identidade e até um plano para cruzar a fronteira. Ele respirou fundo. "Obrigado, Carlos. Eu vou fazer isso funcionar."</p>
+        <p>Mais tarde, Diego apareceu com uma nova tarefa. "Temos um trabalho grande hoje à noite. Preciso que você esteja no controle. É simples: transporte e proteção." Mas João sabia que essa missão poderia ser sua oportunidade de escapar.</p>
+        <p>À noite, João dirigiu até o local da operação. Ele foi recebido por homens armados carregando caixas para uma van. O plano parecia simples, mas Diego estava mais atento do que nunca. João sentia os olhos dele em cada movimento.</p>
+        <p>Durante a viagem, João percebeu que estava sendo seguido. Dois carros pretos mantinham distância, mas estavam claramente de olho nele. Ele sabia que precisava agir rápido. No primeiro sinal de que estava longe dos homens de Diego, João desviou a van para uma estrada secundária.</p>
+        <p>O rádio da van começou a chiar. Era Diego. "João, o que está acontecendo? Você desviou da rota!" João tentou disfarçar. "Problemas no trânsito. Estou pegando um atalho. Já volto para o caminho."</p>
+        <p>Quando chegou a um galpão escondido, Carlos estava esperando com um carro para troca. "Rápido, João. Troque tudo e suma daqui." João transferiu as caixas para o novo veículo e destruiu o rádio da van antes de desaparecer na noite.</p>
+        <p>Ele sabia que a fuga não seria silenciosa. Diego logo perceberia sua ausência e a troca de veículos. Mas naquele momento, ele só conseguia pensar em Ana e Clara. Ele precisava chegar até elas antes que fosse tarde demais.</p>
+        <div class="buttons">
+            <button class="previous" onclick="navigateTo('capitulo9.html')">Anterior</button>
+            <button class="index" onclick="navigateTo('indice.html')">Índice</button>
+            <button class="next" onclick="navigateTo('capitulo11.html')">Próximo</button>
+        </div>
+    </div>
+</body>
+</html>
